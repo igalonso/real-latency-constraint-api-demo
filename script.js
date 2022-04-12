@@ -11,7 +11,6 @@ function loadAnotherVideo() {
     }
     video.load();
     video.play();
-    video.autoplay();
     video.muted();
 
 }
