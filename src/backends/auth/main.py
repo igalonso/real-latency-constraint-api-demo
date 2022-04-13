@@ -20,9 +20,7 @@ def auth():
   "access_token" : "WNSnwquKualbgnGeAK0EXGqzO3A",
   "organization_name" : "example",
   "refresh_token_expires_in" : "0",
-  "refresh_count" : "0"
-})
-  response.headers.add('Content-Type','application/json')    
+  "refresh_count" : "0"})   
   return  response
 
 
