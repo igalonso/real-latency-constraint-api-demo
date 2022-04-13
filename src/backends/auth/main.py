@@ -23,7 +23,6 @@ def auth():
   "refresh_count" : "0"
 })
   response.headers.add('Content-Type','application/json')    
-  response.headers.add('Content-Type','application/json')  
   return  response
 
 
