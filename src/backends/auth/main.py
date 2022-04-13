@@ -1,12 +1,12 @@
 import os
-from flask import Flask
+from flask import Flask, request, Response
+from flask import jsonify
 app = Flask(__name__)
 
 
 @app.route("/v1/oauth/accesstoken")
 def auth():
-    name = os.environ.get("NAME", "World")
-    return  {
+  response = jsonify({
   "issued_at" : "1416157639014",
   "application_name" : "e49ef95f-6d32-4062-ac9a-3beea62ca922",
   "scope" : "",
@@ -21,7 +21,10 @@ def auth():
   "organization_name" : "example",
   "refresh_token_expires_in" : "0",
   "refresh_count" : "0"
-}
+})
+  response.headers.add('Content-Type','application/json')    
+  response.headers.add('Content-Type','application/json')  
+  return  response
 
 
 if __name__ == "__main__":

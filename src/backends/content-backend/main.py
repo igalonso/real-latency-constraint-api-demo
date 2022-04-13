@@ -1,5 +1,6 @@
 import os
-from flask import Flask, request
+from flask import Flask, request, Response
+from flask import jsonify
 app = Flask(__name__)
 import time
 import random
@@ -14,8 +15,12 @@ def broadcast():
     print("Y: "+ str(y/3))
     time.sleep((n/100)+(y/3))
     if (current_channel == "dogs"):
-        return {"broadcast": "cats"}
-    return {"broadcast": "dogs"}
+        response = jsonify({"broadcast": "cats"})
+        response.headers.add('Content-Type','application/json')    
+        return response
+    response = jsonify({"broadcast": "dogs"})
+    response.headers.add('Content-Type','application/json')    
+    return response
 
 
 if __name__ == "__main__":
