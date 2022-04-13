@@ -16,10 +16,8 @@ def broadcast():
     time.sleep((n/100)+(y/3))
     if (current_channel == "dogs"):
         response = jsonify({"broadcast": "cats"})
-        response.headers.add('Content-Type','application/json')    
         return response
     response = jsonify({"broadcast": "dogs"})
-    response.headers.add('Content-Type','application/json')    
     return response
 
 
