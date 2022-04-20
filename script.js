@@ -44,7 +44,13 @@ function changeChannel(){
                     t1 = performance.now();
                     console.log(t0);
                     console.log(t1);
-                    $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
+                    if((Math.round((t1-t0)))/1000 > 0.5){
+                        $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
+                        document.getElementById("timer").style.color = "red";
+                    }else{
+                        $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
+                    }
+                    
                 })                  
             .catch(function(error) {
                 alert(error);

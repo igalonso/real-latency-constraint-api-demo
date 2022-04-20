@@ -9,9 +9,9 @@ import random
 def broadcast():
     args = request.args
     current_channel = args.get("current")
-    n = random.randint(0,99)
+    n = random.randint(0,50)
     print("x: "+ str(n/100))
-    y = random.randint(0,3)
+    y = random.randint(0,2)
     print("Y: "+ str(y/3))
     time_sleeping = (n/100)+(y/3)
     time.sleep(time_sleeping)
