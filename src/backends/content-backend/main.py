@@ -13,11 +13,12 @@ def broadcast():
     print("x: "+ str(n/100))
     y = random.randint(0,3)
     print("Y: "+ str(y/3))
-    time.sleep((n/100)+(y/3))
+    time_sleeping = (n/100)+(y/3)
+    time.sleep(time_sleeping)
     if (current_channel == "dogs"):
         response = jsonify({"broadcast": "cats"})
         return response
-    response = jsonify({"broadcast": "dogs"})
+    response = jsonify({"broadcast": "dogs","backend_took":time_sleeping})
     return response
 
 

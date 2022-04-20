@@ -9,6 +9,7 @@ var europe_south2 = "europe-south2";
 var url = original_url + "&current=" + current;
 function loadAnotherVideo(response) {
     var context_change = response['broadcast'];
+    console.log("Backend response took: " +response["backend_took"]);
     var video = document.getElementsByTagName('video')[0];
     var sources = video.getElementsByTagName('source');
     sources[0].src = "videos/"+context_change+".mp4";
