@@ -11,7 +11,7 @@ def broadcast():
     current_channel = args.get("current")
     n = random.randint(0,50)
     print("x: "+ str(n/100))
-    y = random.randint(0,2)
+    y = random.randint(0,1)
     print("Y: "+ str(y/3))
     time_sleeping = (n/100)+(y/3)
     time.sleep(time_sleeping)
