@@ -1,4 +1,3 @@
-//import { defaultIp, apikey} from './variables.js';
 var default_video = "videos/dogs.mp4";
 var current = "dogs";
 var cat_video = "videos/cats.mp4";
@@ -7,34 +6,27 @@ var uswest1 = "us-west1";
 var europe_north1 = "europe-north1";
 var europe_south2 = "europe-south2";
 
-var url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey;
+var url = original_url + "&current=" + current;
 function loadAnotherVideo(response) {
-
+    var context_change = response['broadcast'];
     var video = document.getElementsByTagName('video')[0];
     var sources = video.getElementsByTagName('source');
-    if(sources[0].src.includes(default_video)){
-    sources[0].src = cat_video;
-    current ="cats";
-    url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey+"&current="+current;
-    }else{
-    sources[0].src = default_video;
-    current = "dogs";
-    url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey+"&current="+current;
-    }
+    sources[0].src = "videos/"+context_change+".mp4";
+    current = context_change;
+    url = original_url + "&current=" + context_change;
     video.load();
     video.play();
-
 }
 function selectUrl(region){
     if (region == europe_north1){
-        defaultIp = "34.149.217.17";
-        url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey+"&current="+current;
+        original_url = region_north;
+        url = original_url + "&current=" + current;
     }else if (region == uswest1){
-        defaultIp = "34.149.217.17";
-        url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey+"&current="+current;
+        original_url = region_us;
+        url = original_url + "&current=" + current;
     }else{
-        defaultIp = "34.149.217.17";
-        url = "https://"+defaultIp+".nip.io/v1/channel?apikey="+apikey+"&current="+current;
+        original_url = region_south;
+        url = original_url + "&current=" + current;
     }
 }
 
@@ -43,18 +35,16 @@ function changeChannel(){
     var t1 = 0;
         fetch(url,{
             method: "GET",
-            mode: "no-cors"
+            mode: "cors"
         })
-            .then(response => {
-                response.text().then(function(result){                    
-                    loadAnotherVideo(result);
+            .then(response => response.json())
+            .then(data => {             
+                    loadAnotherVideo(data);
                     t1 = performance.now();
                     console.log(t0);
                     console.log(t1);
-                    $("#timer").text("Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
-                    
-            });
-            })
+                    $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
+                })                  
             .catch(function(error) {
                 alert(error);
             });

@@ -17,11 +17,11 @@
 
 <body>
     <!--container-->
-    <div class="container frame">
-        <div>
-            <div class="display-5" id="region-header">North Europe</div>
+    <div class="container video">
+        <div class="container-title">
+            <div class="display-5 region-header" id="region-header">North Europe</div>
             <div id="region-ex-header" class="display-6">europe-north1</div>
-            <div id="timer">Time roundtrip:</div>
+            <div id="timer">⏱️ Time roundtrip:</div>
         </div>
         <div class="frame">
             <video autoplay muted loop controls class="video-frame" >
@@ -29,7 +29,7 @@
             Your browser does not support the video tag.
             </video>
         </div>
-        <div class="dropdown">
+        <div class="dropdown region-selection">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select API Endpoint
             </button>
@@ -40,7 +40,7 @@
             </ul>
           </div>
     </div>
-    <div class="container">
+    <div class="container controller">
         <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
             <i class="fas fa-chevron-left"></i>
             <span>TV</span>
