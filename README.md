@@ -15,6 +15,7 @@
 4. Create a *Developer* and an *App* based on that *API Product*
     - Follow this link for instructions to create a developer: https://cloud.google.com/apigee/docs/api-platform/publish/adding-developers-your-api-product
     - Follow this link for instrunctions to create an App: https://cloud.google.com/apigee/docs/api-platform/publish/creating-apps-surface-your-api
+5. Repeat steps 2, 3 and 4 for every region.
 5. Fill out the file ```variables.js.copy```
     ```
     var defaultIp = ""; //Default IP is the IP of the Load Balancer of Apigee
