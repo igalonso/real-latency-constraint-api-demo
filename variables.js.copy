@@ -1,9 +1,9 @@
-var defaultIp = "";
-var apisecret= "";
-var apikey= "";
-var original_url = "";
-var region_north = "";
-var region_south = "";
-var region_us = "";
-var url_oauth = "";
+var defaultIp = ""; //Default IP is the IP of the Load Balancer of Apigee
+var apisecret= ""; //API Secret from the generated App.
+var apikey= ""; //API Key from the generated App.
+var original_url = ""; //First API Endpoint to use including API Key. "https://endpoint/v1/channel?apikey="+apikey;
+var region_north = ""; //Enpoint for north region Apigee
+var region_south = ""; //Enpoint for sourh region Apigee
+var region_us = ""; //Enpoint for US region Apigee
+var url_oauth = ""; //oauth Endpoint "https://endpoint/v1/oauth/accesstoken?grant_type=client_credentials";
 var threshold = 0.5;
