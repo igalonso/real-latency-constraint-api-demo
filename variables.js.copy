@@ -1,0 +1,9 @@
+var defaultIp = "";
+var apisecret= "";
+var apikey= "";
+var original_url = "";
+var region_north = "";
+var region_south = "";
+var region_us = "";
+var url_oauth = "";
+var threshold = 0.5;
