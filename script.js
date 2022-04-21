@@ -70,11 +70,13 @@ function changeChannel(){
                     t1 = performance.now();
                     console.log(t0);
                     console.log(t1);
-                    if((Math.round((t1-t0)))/1000 > 0.5){
+                    console.log(Math.round(t1-t0)/1000);
+                    if((Math.round(t1-t0)/1000) > threshold){
                         $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
                         document.getElementById("timer").style.color = "red";
                     }else{
                         $("#timer").text("⏱️ Time roundtrip: " + (Math.round((t1-t0)))/1000 + " seconds.");
+                        document.getElementById("timer").style.color = "black";
                     }
                     
                 })                  
