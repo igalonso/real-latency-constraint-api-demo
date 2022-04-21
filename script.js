@@ -34,9 +34,35 @@ function selectUrl(region){
 function changeChannel(){
     var t0 = performance.now();
     var t1 = 0;
+    var details = {
+        'client_id': apikey,
+        'client_secret': apisecret
+    }
+    var oauth_body = [];
+    for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        oauth_body.push(encodedKey + "=" + encodedValue);
+    }
+    oauth_body = oauth_body.join("&");
+    
+    fetch(url_oauth,{
+        method: "POST",
+        // mode: "no-cors",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+        body: oauth_body
+    })
+    .then(response => response.json())
+    .then(result => { 
+        console.log('Success:', result['access_token']);
         fetch(url,{
             method: "GET",
-            mode: "cors"
+            mode: "cors",
+            headers: {
+                "Authorization": "Bearer "+ result['access_token']
+            }
         })
             .then(response => response.json())
             .then(data => {             
@@ -55,6 +81,11 @@ function changeChannel(){
             .catch(function(error) {
                 alert(error);
             });
+    })
+    .catch(function(error) {
+        alert(error);
+    });
+    
 }
 
 $(document).ready(function() {
