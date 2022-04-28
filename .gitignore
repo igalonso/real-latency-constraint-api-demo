@@ -1,2 +1,6 @@
 variables.js
 call.sh
+keys
+keys/*
+init.sh
+certificate.crt

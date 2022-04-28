@@ -3,7 +3,7 @@ var current = "dogs";
 var cat_video = "videos/cats.mp4";
 var default_region ="europe-north1";
 var uswest1 = "us-west1";
-var europe_north1 = "europe-north1";
+var hybrid_local = "local";
 var europe_south2 = "europe-south2";
 
 var url = original_url + "&current=" + current;
@@ -19,14 +19,19 @@ function loadAnotherVideo(response) {
     video.play();
 }
 function selectUrl(region){
-    if (region == europe_north1){
-        original_url = region_north;
+    if (region == hybrid_local){
+        original_url = region_hybrid;
+        url_oauth = oauth_region_hybrid;
         url = original_url + "&current=" + current;
+        
     }else if (region == uswest1){
         original_url = region_us;
+        url_oauth = oauth_region_us;
         url = original_url + "&current=" + current;
+
     }else{
         original_url = region_south;
+        url_oauth = oauth_region_south;
         url = original_url + "&current=" + current;
     }
 }
