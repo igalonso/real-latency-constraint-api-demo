@@ -4,7 +4,7 @@ var cat_video = "videos/cats.mp4";
 var default_region ="europe-north1";
 var uswest1 = "us-west1";
 var hybrid_local = "local";
-var europe_south2 = "europe-south2";
+var europe_southwest1 = "europe-southwest1";
 
 var url = original_url + "&current=" + current;
 function loadAnotherVideo(response) {
@@ -53,7 +53,7 @@ function changeChannel(){
     
     fetch(url_oauth,{
         method: "POST",
-        // mode: "no-cors",
+        mode: "cors",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           },

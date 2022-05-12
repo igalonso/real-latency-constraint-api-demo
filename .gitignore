@@ -3,4 +3,6 @@ call.sh
 keys
 keys/*
 init.sh
+certificate.certificate
+keep-it-going.sh
 certificate.crt
